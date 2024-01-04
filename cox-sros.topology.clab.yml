@@ -7,7 +7,7 @@ topology:
       kind: nokia_sros
       image: vrnet-sros:23.10.R1
       type: >-
-          cpu=4 min_ram=10 max_nics=20 chassis=ixr-r6 slot=A card=cpiom-ixr-r6 mda/1=m6-10g-sfp++1-100g-qsfp28 mda/2=m6-10g-sfp++1-100g-qsfp28
+          cpu=4 min_ram=10 max_nics=20 chassis=ixr-r6 slot=A card=cpiom-ixr-r6 slot=1 card=iom-ixr-r6 mda/1=m4-10g-sfp++1-100g-cfp2 mda/2=m6-10g-sfp++1-100g-qsfp28
       license: ./sros-license.txt
       mgmt-ipv4: 172.20.20.101
       ports:
@@ -18,7 +18,7 @@ topology:
       kind: nokia_sros
       image: vrnet-sros:23.10.R1
       type: >-
-          cpu=4 min_ram=10 max_nics=20 chassis=ixr-r6 slot=A card=cpiom-ixr-r6 mda/1=m6-10g-sfp++1-100g-qsfp28 mda/2=m6-10g-sfp++1-100g-qsfp28      
+          cpu=4 min_ram=10 max_nics=20 chassis=ixr-r6 slot=A card=cpiom-ixr-r6 slot=1 card=iom-ixr-r6 mda/1=m4-10g-sfp++1-100g-cfp2 mda/2=m6-10g-sfp++1-100g-qsfp28
       license: ./sros-license.txt
       mgmt-ipv4: 172.20.20.102
       ports:
@@ -29,7 +29,7 @@ topology:
       kind: nokia_sros
       image: vrnet-sros:23.10.R1
       type: >-
-          cpu=4 min_ram=10 max_nics=30 chassis=ixr-r6 slot=A card=cpiom-ixr-r6 mda/1=m6-10g-sfp++1-100g-qsfp28 mda/2=m6-10g-sfp++1-100g-qsfp28
+          cpu=4 min_ram=10 max_nics=20 chassis=ixr-r6 slot=A card=cpiom-ixr-r6 slot=1 card=iom-ixr-r6 mda/1=m4-10g-sfp++1-100g-cfp2 mda/2=m6-10g-sfp++1-100g-qsfp28
       license: ./sros-license.txt
       mgmt-ipv4: 172.20.20.103
       ports:
@@ -40,14 +40,14 @@ topology:
       kind: nokia_sros
       image: vrnet-sros:23.10.R1
       type: >-
-          cpu=4 min_ram=10 max_nics=20 chassis=ixr-r6 slot=A card=cpiom-ixr-r6 mda/1=m6-10g-sfp++1-100g-qsfp28 mda/2=m6-10g-sfp++1-100g-qsfp28
+          cpu=4 min_ram=10 max_nics=20 chassis=ixr-r6 slot=A card=cpiom-ixr-r6 slot=1 card=iom-ixr-r6 mda/1=m4-10g-sfp++1-100g-cfp2 mda/2=m6-10g-sfp++1-100g-qsfp28
       license: ./sros-license.txt
       mgmt-ipv4: 172.20.20.104
       ports:
         - 50401:22
         - 50402:57400
         - 50403:830
-    r5-sr:
+    sr-r5:
       kind: nokia_sros
       image: vrnet-sros:23.10.R1
       type: sr-1
@@ -57,7 +57,7 @@ topology:
         - 50501:22
         - 50502:57400
         - 50503:830
-    r6-sr:
+    sr-r6:
       kind: nokia_sros
       image: vrnet-sros:23.10.R1
       type: sr-1
@@ -67,7 +67,7 @@ topology:
         - 50601:22
         - 50602:57400
         - 50603:830
-    r7-sr:
+    sr-r7:
       kind: nokia_sros
       image: vrnet-sros:23.10.R1
       type: sr-1
@@ -77,7 +77,7 @@ topology:
         - 50701:22
         - 50702:57400
         - 50703:830
-    r8-sr:
+    sr-r8:
       kind: nokia_sros
       image: vrnet-sros:23.10.R1
       type: sr-1
@@ -87,7 +87,7 @@ topology:
         - 50801:22
         - 50802:57400
         - 50803:830
-    r9-sr:
+    sr-r9:
       kind: nokia_sros
       image: vrnet-sros:23.10.R1
       type: sr-1
@@ -97,7 +97,7 @@ topology:
         - 50901:22
         - 50902:57400
         - 50903:830
-    r10-sr:
+    sr-r10:
       kind: nokia_sros
       image: vrnet-sros:23.10.R1
       type: sr-1
@@ -107,7 +107,7 @@ topology:
         - 51001:22
         - 51002:57400
         - 51003:830
-    r11-sr:
+    sr-r11:
       kind: nokia_sros
       image: vrnet-sros:23.10.R1
       type: sr-1
@@ -117,7 +117,7 @@ topology:
         - 51101:22
         - 51102:57400
         - 51103:830
-    r12-sr:
+    sr-r12:
       kind: nokia_sros
       image: vrnet-sros:23.10.R1
       type: sr-1
@@ -205,30 +205,28 @@ topology:
       mgmt-ipv4: 172.20.20.126
   links:
   #Connections of the first ring 
-    - endpoints: ["ixr-r1:eth7", "ixr-r2:eth7"]
-    - endpoints: ["ixr-r2:eth14", "ixr-r3:eth7"]
-    - endpoints: ["ixr-r3:eth15", "r5-sr:eth1"]
-    - endpoints: ["ixr-r4:eth1", "tester4:eth1"]
-    - endpoints: ["ixr-r1:eth1", "tester1:eth1"]
-    - endpoints: ["ixr-r2:eth1", "tester2:eth1"]
+    - endpoints: ["ixr-r1:eth5", "ixr-r2:eth5"]
+    - endpoints: ["ixr-r2:eth12", "ixr-r3:eth12"]
     - endpoints: ["ixr-r3:eth1", "tester3:eth1"]
-  #Core connections
-    - endpoints: ["r5-sr:eth2", "r6-sr:eth2"]
-    - endpoints: ["r5-sr:eth3", "r7-sr:eth1"]
-    - endpoints: ["r7-sr:eth2", "r8-sr:eth2"]
-    - endpoints: ["r9-sr:eth2", "r10-sr:eth2"]
-    - endpoints: ["r9-sr:eth3", "r11-sr:eth1"]
-    - endpoints: ["r11-sr:eth2", "r12-sr:eth2"]
-    - endpoints: ["r11-sr:eth3", "ixr-r13:eth1"]
-    - endpoints: ["r12-sr:eth3", "r10-sr:eth1"]
-    - endpoints: ["r10-sr:eth3", "r8-sr:eth1"]
-    - endpoints: ["r8-sr:eth3", "r6-sr:eth1"]
-    - endpoints: ["r6-sr:eth3", "ixr-r4:eth14"]
-  #Core connections
+    - endpoints: ["ixr-r3:eth5", "sr-r5:eth1"]
+    - endpoints: ["sr-r5:eth2", "sr-r6:eth2"]
+    - endpoints: ["sr-r5:eth3", "sr-r7:eth1"]
+    - endpoints: ["sr-r7:eth2", "sr-r8:eth2"]
+    - endpoints: ["sr-r9:eth2", "sr-r10:eth2"]
+    - endpoints: ["sr-r9:eth3", "sr-r11:eth1"]
+    - endpoints: ["sr-r11:eth2", "sr-r12:eth2"]
+    - endpoints: ["sr-r11:eth3", "ixr-r13:eth1"]
     - endpoints: ["ixr-r13:eth2", "tester5:eth1"]
     - endpoints: ["ixr-r13:eth3", "ixr-r15:eth1"]
     - endpoints: ["ixr-r15:eth2", "ixr-r16:eth1"]
     - endpoints: ["ixr-r16:eth2", "tester6:eth1"]
     - endpoints: ["ixr-r15:eth3", "ixr-r14:eth1"]
     - endpoints: ["ixr-r14:eth2", "tester7:eth1"]
-    - endpoints: ["ixr-r14:eth3", "r12-sr:eth1"]
+    - endpoints: ["ixr-r14:eth3", "sr-r12:eth1"]
+    - endpoints: ["sr-r12:eth3", "sr-r10:eth1"]
+    - endpoints: ["sr-r10:eth3", "sr-r8:eth1"]
+    - endpoints: ["sr-r8:eth3", "sr-r6:eth1"]
+    - endpoints: ["sr-r6:eth3", "ixr-r4:eth5"]
+    - endpoints: ["ixr-r4:eth1", "tester4:eth1"]
+    - endpoints: ["ixr-r1:eth1", "tester1:eth1"]
+    - endpoints: ["ixr-r2:eth1", "tester2:eth1"]
