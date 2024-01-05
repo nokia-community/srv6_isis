@@ -18,8 +18,7 @@ topology:
     ixr-r2:
       kind: nokia_sros
       image: vrnet-sros:23.10.R1
-      type: >-
-          cpu=4 min_ram=10 max_nics=20 chassis=ixr-r6 slot=A card=cpiom-ixr-r6 slot=1 card=iom-ixr-r6 mda/1=m4-10g-sfp++1-100g-cfp2 mda/2=m6-10g-sfp++1-100g-qsfp28
+      type: ixr-e2   
       license: ./sros-license.txt
       startup-config: ./config/ixr-r2.cfg
       mgmt-ipv4: 172.20.20.102
@@ -155,9 +154,7 @@ topology:
     ixr-r14:
       kind: nokia_sros
       image: vrnet-sros:23.10.R1
-      type: >-
-          cp: cpu=2 ram=4 chassis=ixr-r6d slot=A card=cpm-ixr-r6d/iom-ixr-r6d ___
-          lc: cpu=4 ram=6 chassis=ixr-r6d slot=1 card=cpm-ixr-r6d/iom-ixr-r6d mda/1=m5-100g-qsfp28
+      type: ixr-e2
       license: ./sros-license.txt
       startup-config: ./config/ixr-r14.cfg
       mgmt-ipv4: 172.20.20.114
@@ -181,9 +178,7 @@ topology:
     ixr-r16:
       kind: nokia_sros
       image: vrnet-sros:23.10.R1
-      type: >-
-          cp: cpu=2 ram=4 chassis=ixr-r6d slot=A card=cpm-ixr-r6d/iom-ixr-r6d ___
-          lc: cpu=4 ram=6 chassis=ixr-r6d slot=1 card=cpm-ixr-r6d/iom-ixr-r6d mda/1=m5-100g-qsfp28
+      type: ixr-e2
       license: ./sros-license.txt
       startup-config: ./config/ixr-r16.cfg
       mgmt-ipv4: 172.20.20.116
@@ -221,8 +216,9 @@ topology:
       mgmt-ipv4: 172.20.20.126
   links:
   #Connections of the first ring 
-    - endpoints: ["ixr-r1:eth5", "ixr-r2:eth5"]
-    - endpoints: ["ixr-r2:eth12", "ixr-r3:eth12"]
+    - endpoints: ["ixr-r1:eth5", "ixr-r2:eth3"]
+    - endpoints: ["ixr-r1:eth12", "ixr-r3:eth12"]
+    - endpoints: ["ixr-r1:eth1", "tester1:eth1"]
     - endpoints: ["ixr-r3:eth1", "tester3:eth1"]
     - endpoints: ["ixr-r3:eth5", "sr-r5:eth1"]
     - endpoints: ["sr-r5:eth2", "sr-r6:eth2"]
@@ -243,7 +239,6 @@ topology:
     - endpoints: ["sr-r10:eth3", "sr-r8:eth1"]
     - endpoints: ["sr-r8:eth3", "sr-r6:eth1"]
     - endpoints: ["sr-r6:eth3", "ixr-r4:eth5"]
-    - endpoints: ["ixr-r1:eth12", "ixr-r4:eth12"]
+    - endpoints: ["ixr-r2:eth1", "ixr-r4:eth12"]
     - endpoints: ["ixr-r4:eth1", "tester4:eth1"]
-    - endpoints: ["ixr-r1:eth1", "tester1:eth1"]
-    - endpoints: ["ixr-r2:eth1", "tester2:eth1"]
+    - endpoints: ["ixr-r2:eth2", "tester2:eth1"]
