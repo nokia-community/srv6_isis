@@ -272,6 +272,7 @@ topology:
     - endpoints: ["sr-r5:eth2", "sr-r6:eth2"]
     - endpoints: ["sr-r5:eth3", "sr-r7:eth1"]
     - endpoints: ["sr-r7:eth2", "sr-r8:eth2"]
+    - endpoints: ["sr-r7:eth3", "sr-r9:eth1"]
     - endpoints: ["sr-r9:eth2", "sr-r10:eth2"]
     - endpoints: ["sr-r9:eth3", "sr-r11:eth1"]
     - endpoints: ["sr-r11:eth2", "sr-r12:eth2"]
