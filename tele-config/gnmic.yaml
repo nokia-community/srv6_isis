@@ -55,10 +55,10 @@ subscriptions:
 outputs:     
   prom-output:
     type: prometheus
-    listen: "clab-cox-gnmic:9804"
+    listen: "clab-srv6-gnmic:9804"
     strings-as-labels: true
     service-registration:
-      address: clab-cox-consul-agent:8500
+      address:  clab-srv6-consul-agent:8500
     event-processors:
       - up-down-map
 

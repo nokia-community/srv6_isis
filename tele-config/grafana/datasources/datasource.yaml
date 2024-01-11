@@ -20,7 +20,7 @@ datasources:
   - name: Prometheus
     type: prometheus
     orgId: 1
-    url: http://clab-cox-prometheus:9090
+    url: http://clab-srv6-prometheus:9090
     password:
     user:
     database:
@@ -33,4 +33,4 @@ datasources:
     editable: true
   - name: Loki
     type: loki
-    url: http://clab-cox-loki:3100
+    url: http://clab-srv6-loki:3100

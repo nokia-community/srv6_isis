@@ -1347,8 +1347,8 @@
       {
         "current": {
           "selected": true,
-          "text": "clab-cox-sr-r11:57400",
-          "value": "clab-cox-sr-r11:57400"
+          "text": "clab-srv6-R11-SR:57400",
+          "value": "clab-srv6-R11-SR:57400"
         },
         "datasource": {
           "type": "prometheus",

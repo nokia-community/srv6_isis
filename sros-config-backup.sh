@@ -1,18 +1,18 @@
 #!/bin/bash
 
-yes | cp ./clab-cox/ixr-r1/tftpboot/config.txt ./config/ixr-r1.cfg
-yes | cp ./clab-cox/ixr-r2/tftpboot/config.txt ./config/ixr-r2.cfg
-yes | cp ./clab-cox/ixr-r3/tftpboot/config.txt ./config/ixr-r3.cfg
-yes | cp ./clab-cox/ixr-r4/tftpboot/config.txt ./config/ixr-r4.cfg
-yes | cp ./clab-cox/sr-r5/tftpboot/config.txt ./config/sr-r5.cfg
-yes | cp ./clab-cox/sr-r6/tftpboot/config.txt ./config/sr-r6.cfg
-yes | cp ./clab-cox/sr-r7/tftpboot/config.txt ./config/sr-r7.cfg
-yes | cp ./clab-cox/sr-r8/tftpboot/config.txt ./config/sr-r8.cfg
-yes | cp ./clab-cox/sr-r9/tftpboot/config.txt ./config/sr-r9.cfg
-yes | cp ./clab-cox/sr-r10/tftpboot/config.txt ./config/sr-r10.cfg
-yes | cp ./clab-cox/sr-r11/tftpboot/config.txt ./config/sr-r11.cfg
-yes | cp ./clab-cox/sr-r12/tftpboot/config.txt ./config/sr-r12.cfg
-yes | cp ./clab-cox/ixr-r13/tftpboot/config.txt ./config/ixr-r13.cfg
-yes | cp ./clab-cox/ixr-r14/tftpboot/config.txt ./config/ixr-r14.cfg
-yes | cp ./clab-cox/ixr-r15/tftpboot/config.txt ./config/ixr-r15.cfg
-yes | cp ./clab-cox/ixr-r16/tftpboot/config.txt ./config/ixr-r16.cfg
+yes | cp ./clab-srv6/R01-IXR/tftpboot/config.txt ./config/R01-IXR.cfg
+yes | cp ./clab-srv6/R02-IXR/tftpboot/config.txt ./config/R02-IXR.cfg
+yes | cp ./clab-srv6/R03-IXR/tftpboot/config.txt ./config/R03-IXR.cfg
+yes | cp ./clab-srv6/R04-IXR/tftpboot/config.txt ./config/R04-IXR.cfg
+yes | cp ./clab-srv6/R05-SR/tftpboot/config.txt ./config/R05-SR.cfg
+yes | cp ./clab-srv6/R06-SR/tftpboot/config.txt ./config/R06-SR.cfg
+yes | cp ./clab-srv6/R07-SR/tftpboot/config.txt ./config/R07-SR.cfg
+yes | cp ./clab-srv6/R08-SR/tftpboot/config.txt ./config/R08-SR.cfg
+yes | cp ./clab-srv6/R09-SR/tftpboot/config.txt ./config/R09-SR.cfg
+yes | cp ./clab-srv6/R10-SR/tftpboot/config.txt ./config/R10-SR.cfg
+yes | cp ./clab-srv6/R11-SR/tftpboot/config.txt ./config/R11-SR.cfg
+yes | cp ./clab-srv6/R12-SR/tftpboot/config.txt ./config/R12-SR.cfg
+yes | cp ./clab-srv6/R13-IXR/tftpboot/config.txt ./config/R13-IXR.cfg
+yes | cp ./clab-srv6/R14-IXR/tftpboot/config.txt ./config/R14-IXR.cfg
+yes | cp ./clab-srv6/R15-IXR/tftpboot/config.txt ./config/R15-IXR.cfg
+yes | cp ./clab-srv6/R16-IXR/tftpboot/config.txt ./config/R16-IXR.cfg
