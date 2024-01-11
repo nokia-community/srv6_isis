@@ -1,186 +1,170 @@
-name: cox
+name: srv6
+# topology based on 16 nodes
+# different platform types include 7750 and 7250 based on SROS
+
+mgmt:
+  network: net3         # management network name
+  ipv4-subnet: 172.20.20.0/24       # ipv4 range
 
 topology:
-  nodes:
-  # Ring-1 with all IXR-R6
-    ixr-r1:
-      kind: nokia_sros
+  defaults:
+    kind: nokia_sros
+  kinds:
+    nokia_sros:
       image: vrnet-sros:23.10.R1
+      license: ./license-sros23.txt
+    linux:
+      image: ghcr.io/mfzhsn/network-multitool-sshd:0.0.2
+  nodes:
+  # Ring-1: access
+    R01-IXR: #IXR-R6
+      kind: nokia_sros
       type: >-
           cpu=4 min_ram=10 max_nics=20 chassis=ixr-r6 slot=A card=cpiom-ixr-r6 slot=1 card=iom-ixr-r6 mda/1=m4-10g-sfp++1-100g-cfp2 mda/2=m6-10g-sfp++1-100g-qsfp28
-      license: ./sros-license.txt
-      startup-config: ./config/ixr-r1.cfg
+      startup-config: ./config/R01-IXR.cfg
       mgmt-ipv4: 172.20.20.101
       ports:
         - 50101:22
         - 50102:57400
         - 50103:830  
-    ixr-r2:
+    R02-IXR: #IXR-e2
       kind: nokia_sros
-      image: vrnet-sros:23.10.R1
       type: ixr-e2   
-      license: ./sros-license.txt
-      startup-config: ./config/ixr-r2.cfg
+      startup-config: ./config/R02-IXR.cfg
       mgmt-ipv4: 172.20.20.102
       ports:
         - 50201:22
         - 50202:57400
         - 50203:830
-    ixr-r3:
+    R03-IXR: #IXR-R6
       kind: nokia_sros
-      image: vrnet-sros:23.10.R1
       type: >-
           cpu=4 min_ram=10 max_nics=20 chassis=ixr-r6 slot=A card=cpiom-ixr-r6 slot=1 card=iom-ixr-r6 mda/1=m4-10g-sfp++1-100g-cfp2 mda/2=m6-10g-sfp++1-100g-qsfp28
-      license: ./sros-license.txt
-      startup-config: ./config/ixr-r3.cfg
+      startup-config: ./config/R03-IXR.cfg
       mgmt-ipv4: 172.20.20.103
       ports:
         - 50301:22
         - 50302:57400
         - 50303:830
-    ixr-r4:
+    R04-IXR: #IXR-R6
       kind: nokia_sros
-      image: vrnet-sros:23.10.R1
       type: >-
           cpu=4 min_ram=10 max_nics=20 chassis=ixr-r6 slot=A card=cpiom-ixr-r6 slot=1 card=iom-ixr-r6 mda/1=m4-10g-sfp++1-100g-cfp2 mda/2=m6-10g-sfp++1-100g-qsfp28
-      license: ./sros-license.txt
-      startup-config: ./config/ixr-r4.cfg
+      startup-config: ./config/R04-IXR.cfg
       mgmt-ipv4: 172.20.20.104
       ports:
         - 50401:22
         - 50402:57400
         - 50403:830
-    sr-r5:
+    # Core
+    R05-SR: #SR-1
       kind: nokia_sros
-      image: vrnet-sros:23.10.R1
       type: sr-1
-      license: ./sros-license.txt
-      startup-config: ./config/sr-r5.cfg
+      startup-config: ./config/R05-SR.cfg
       mgmt-ipv4: 172.20.20.105
       ports:
         - 50501:22
         - 50502:57400
         - 50503:830
-    sr-r6:
+    R06-SR: #SR-1
       kind: nokia_sros
-      image: vrnet-sros:23.10.R1
       type: sr-1
-      license: ./sros-license.txt
-      startup-config: ./config/sr-r6.cfg
+      startup-config: ./config/R06-SR.cfg
       mgmt-ipv4: 172.20.20.106
       ports:
         - 50601:22
         - 50602:57400
         - 50603:830
-    sr-r7:
+    R07-SR: #SR-1
       kind: nokia_sros
-      image: vrnet-sros:23.10.R1
       type: sr-1
-      license: ./sros-license.txt
-      startup-config: ./config/sr-r7.cfg
+      startup-config: ./config/R07-SR.cfg
       mgmt-ipv4: 172.20.20.107
       ports:
         - 50701:22
         - 50702:57400
         - 50703:830
-    sr-r8:
+    R08-SR: #SR-1
       kind: nokia_sros
-      image: vrnet-sros:23.10.R1
       type: sr-1
-      license: ./sros-license.txt
-      startup-config: ./config/sr-r8.cfg
+      startup-config: ./config/R08-SR.cfg
       mgmt-ipv4: 172.20.20.108
       ports:
         - 50801:22
         - 50802:57400
         - 50803:830
-    sr-r9:
+    R09-SR: #SR-1
       kind: nokia_sros
-      image: vrnet-sros:23.10.R1
       type: sr-1
-      license: ./sros-license.txt
-      startup-config: ./config/sr-r9.cfg
+      startup-config: ./config/R09-SR.cfg
       mgmt-ipv4: 172.20.20.109
       ports:
         - 50901:22
         - 50902:57400
         - 50903:830
-    sr-r10:
+    R10-SR: #SR-1
       kind: nokia_sros
-      image: vrnet-sros:23.10.R1
       type: sr-1
-      license: ./sros-license.txt
-      startup-config: ./config/sr-r10.cfg
+      startup-config: ./config/R10-SR.cfg
       mgmt-ipv4: 172.20.20.110
       ports:
         - 51001:22
         - 51002:57400
         - 51003:830
-    sr-r11:
+    R11-SR: #SR-1
       kind: nokia_sros
-      image: vrnet-sros:23.10.R1
       type: sr-1
-      license: ./sros-license.txt
-      startup-config: ./config/sr-r11.cfg
+      startup-config: ./config/R11-SR.cfg
       mgmt-ipv4: 172.20.20.111
       ports:
         - 51101:22
         - 51102:57400
         - 51103:830
-    sr-r12:
+    R12-SR: #SR-1
       kind: nokia_sros
-      image: vrnet-sros:23.10.R1
       type: sr-1
-      license: ./sros-license.txt
-      startup-config: ./config/sr-r12.cfg
+      startup-config: ./config/R12-SR.cfg
       mgmt-ipv4: 172.20.20.112
       ports:
         - 51201:22
         - 51202:57400
         - 51203:830
-    ixr-r13:
+    # Ring-2: access
+    R13-IXR: #IXR-R6d
       kind: nokia_sros
-      image: vrnet-sros:23.10.R1
       type: >-
           cp: cpu=2 ram=4 chassis=ixr-r6d slot=A card=cpm-ixr-r6d/iom-ixr-r6d ___
           lc: cpu=4 ram=6 chassis=ixr-r6d slot=1 card=cpm-ixr-r6d/iom-ixr-r6d mda/1=m5-100g-qsfp28
-      license: ./sros-license.txt
-      startup-config: ./config/ixr-r13.cfg
+      startup-config: ./config/R13-IXR.cfg
       mgmt-ipv4: 172.20.20.113
-      ports:
+      ports: 
         - 51301:22
         - 51302:57400
         - 51303:830
-    ixr-r14:
+    R14-IXR: #IXR-e2
       kind: nokia_sros
-      image: vrnet-sros:23.10.R1
       type: ixr-e2
-      license: ./sros-license.txt
-      startup-config: ./config/ixr-r14.cfg
+      startup-config: ./config/R14-IXR.cfg
       mgmt-ipv4: 172.20.20.114
       ports:
         - 51401:22
         - 51402:57400
         - 51403:830
-    ixr-r15:
+    R15-IXR: #IXR-R6d
       kind: nokia_sros
-      image: vrnet-sros:23.10.R1
       type: >-
           cp: cpu=2 ram=4 chassis=ixr-r6d slot=A card=cpm-ixr-r6d/iom-ixr-r6d ___
           lc: cpu=4 ram=6 chassis=ixr-r6d slot=1 card=cpm-ixr-r6d/iom-ixr-r6d mda/1=m5-100g-qsfp28
-      license: ./sros-license.txt
-      startup-config: ./config/ixr-r15.cfg
+      startup-config: ./config/R15-IXR.cfg
       mgmt-ipv4: 172.20.20.115
       ports:
         - 51501:22
         - 51502:57400
         - 51503:830
-    ixr-r16:
+    R16-IXR: #IXR-e2
       kind: nokia_sros
-      image: vrnet-sros:23.10.R1
       type: ixr-e2
-      license: ./sros-license.txt
-      startup-config: ./config/ixr-r16.cfg
+      startup-config: ./config/R16-IXR.cfg
       mgmt-ipv4: 172.20.20.116
       ports:
         - 51601:22
@@ -188,31 +172,24 @@ topology:
         - 51603:830  
     tester1:
       kind: linux
-      image: ghcr.io/mfzhsn/network-multitool-sshd:0.0.2
       mgmt-ipv4: 172.20.20.120
     tester2:
       kind: linux
-      image: ghcr.io/mfzhsn/network-multitool-sshd:0.0.2
       mgmt-ipv4: 172.20.20.121
     tester3:
       kind: linux
-      image: ghcr.io/mfzhsn/network-multitool-sshd:0.0.2
       mgmt-ipv4: 172.20.20.122
     tester4:
       kind: linux
-      image: ghcr.io/mfzhsn/network-multitool-sshd:0.0.2
       mgmt-ipv4: 172.20.20.123
     tester5:
       kind: linux
-      image: ghcr.io/mfzhsn/network-multitool-sshd:0.0.2
       mgmt-ipv4: 172.20.20.124
     tester6:
       kind: linux
-      image: ghcr.io/mfzhsn/network-multitool-sshd:0.0.2
       mgmt-ipv4: 172.20.20.125
     tester7:
       kind: linux
-      image: ghcr.io/mfzhsn/network-multitool-sshd:0.0.2
       mgmt-ipv4: 172.20.20.126
 
 #################################################################################################################################################
@@ -264,30 +241,30 @@ topology:
 
   links:
   #Connections of the first ring 
-    - endpoints: ["ixr-r1:eth5", "ixr-r2:eth3"]
-    - endpoints: ["ixr-r1:eth12", "ixr-r3:eth12"]
-    - endpoints: ["ixr-r1:eth1", "tester1:eth1"]
-    - endpoints: ["ixr-r3:eth1", "tester3:eth1"]
-    - endpoints: ["ixr-r3:eth5", "sr-r5:eth1"]
-    - endpoints: ["sr-r5:eth2", "sr-r6:eth2"]
-    - endpoints: ["sr-r5:eth3", "sr-r7:eth1"]
-    - endpoints: ["sr-r7:eth2", "sr-r8:eth2"]
-    - endpoints: ["sr-r7:eth3", "sr-r9:eth1"]
-    - endpoints: ["sr-r9:eth2", "sr-r10:eth2"]
-    - endpoints: ["sr-r9:eth3", "sr-r11:eth1"]
-    - endpoints: ["sr-r11:eth2", "sr-r12:eth2"]
-    - endpoints: ["sr-r11:eth3", "ixr-r13:eth1"]
-    - endpoints: ["ixr-r13:eth2", "tester5:eth1"]
-    - endpoints: ["ixr-r13:eth3", "ixr-r15:eth1"]
-    - endpoints: ["ixr-r15:eth2", "ixr-r16:eth1"]
-    - endpoints: ["ixr-r16:eth2", "tester6:eth1"]
-    - endpoints: ["ixr-r15:eth3", "ixr-r14:eth1"]
-    - endpoints: ["ixr-r14:eth2", "tester7:eth1"]
-    - endpoints: ["ixr-r14:eth3", "sr-r12:eth1"]
-    - endpoints: ["sr-r12:eth3", "sr-r10:eth1"]
-    - endpoints: ["sr-r10:eth3", "sr-r8:eth1"]
-    - endpoints: ["sr-r8:eth3", "sr-r6:eth1"]
-    - endpoints: ["sr-r6:eth3", "ixr-r4:eth5"]
-    - endpoints: ["ixr-r2:eth1", "ixr-r4:eth12"]
-    - endpoints: ["ixr-r4:eth1", "tester4:eth1"]
-    - endpoints: ["ixr-r2:eth2", "tester2:eth1"]
+    - endpoints: ["R01-IXR:eth5", "R02-IXR:eth3"]
+    - endpoints: ["R01-IXR:eth12", "R03-IXR:eth12"]
+    - endpoints: ["R01-IXR:eth1", "tester1:eth1"]
+    - endpoints: ["R03-IXR:eth1", "tester3:eth1"]
+    - endpoints: ["R03-IXR:eth5", "R05-SR:eth1"]
+    - endpoints: ["R05-SR:eth2", "R06-SR:eth2"]
+    - endpoints: ["R05-SR:eth3", "R07-SR:eth1"]
+    - endpoints: ["R07-SR:eth2", "R08-SR:eth2"]
+    - endpoints: ["R07-SR:eth3", "R09-SR:eth1"]
+    - endpoints: ["R09-SR:eth2", "R10-SR:eth2"]
+    - endpoints: ["R09-SR:eth3", "R11-SR:eth1"]
+    - endpoints: ["R11-SR:eth2", "R12-SR:eth2"]
+    - endpoints: ["R11-SR:eth3", "R13-IXR:eth1"]
+    - endpoints: ["R13-IXR:eth2", "tester5:eth1"]
+    - endpoints: ["R13-IXR:eth3", "R15-IXR:eth1"]
+    - endpoints: ["R15-IXR:eth2", "R16-IXR:eth1"]
+    - endpoints: ["R16-IXR:eth2", "tester6:eth1"]
+    - endpoints: ["R15-IXR:eth3", "R14-IXR:eth1"]
+    - endpoints: ["R14-IXR:eth2", "tester7:eth1"]
+    - endpoints: ["R14-IXR:eth3", "R12-SR:eth1"]
+    - endpoints: ["R12-SR:eth3", "R10-SR:eth1"]
+    - endpoints: ["R10-SR:eth3", "R08-SR:eth1"]
+    - endpoints: ["R08-SR:eth3", "R06-SR:eth1"]
+    - endpoints: ["R06-SR:eth3", "R04-IXR:eth5"]
+    - endpoints: ["R02-IXR:eth1", "R04-IXR:eth12"]
+    - endpoints: ["R04-IXR:eth1", "tester4:eth1"]
+    - endpoints: ["R02-IXR:eth2", "tester2:eth1"]
