@@ -16,18 +16,12 @@ insecure: true
 encoding: json_ietf
 log: true
 
-loader:
-  type: docker
-  filters:
-    - containers:
-      - label=clab-node-kind: vr-sros
-        label=containerlab: srv6
 targets:
   #SROS
   clab-srv6-R01-IXR:57400:
   clab-srv6-R02-IXR:57400:
-  clab-srv6-R02-IXR:57400:
   clab-srv6-R03-IXR:57400:
+  clab-srv6-R04-IXR:57400:
   clab-srv6-R05-SR:57400:
   clab-srv6-R06-SR:57400:
   clab-srv6-R07-SR:57400:
