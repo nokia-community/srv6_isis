@@ -173,24 +173,45 @@ topology:
     tester1:
       kind: linux
       mgmt-ipv4: 172.20.20.120
+      exec:
+        - ifconfig eth1 192.168.0.1
+        - ifconfig eth1 netmask 255.255.255.0 
     tester2:
       kind: linux
       mgmt-ipv4: 172.20.20.121
+      exec:
+        - ifconfig eth1 192.168.0.2
+        - ifconfig eth1 netmask 255.255.255.0
     tester3:
       kind: linux
       mgmt-ipv4: 172.20.20.122
+      exec:
+        - ifconfig eth1 192.168.0.3
+        - ifconfig eth1 netmask 255.255.255.0
     tester4:
       kind: linux
       mgmt-ipv4: 172.20.20.123
+      exec:
+        - ifconfig eth1 192.168.0.4
+        - ifconfig eth1 netmask 255.255.255.0
     tester5:
       kind: linux
       mgmt-ipv4: 172.20.20.124
+      exec:
+        - ifconfig eth1 192.168.0.5
+        - ifconfig eth1 netmask 255.255.255.0
     tester6:
       kind: linux
       mgmt-ipv4: 172.20.20.125
+      exec:
+        - ifconfig eth1 192.168.0.6
+        - ifconfig eth1 netmask 255.255.255.0
     tester7:
       kind: linux
       mgmt-ipv4: 172.20.20.126
+      exec:
+        - ifconfig eth1 192.168.0.7
+        - ifconfig eth1 netmask 255.255.255.0
 
 #################################################################################################################################################
 #Telemetry 
