@@ -502,6 +502,153 @@
         "type": "prometheus",
         "uid": "PBFA97CFB590B2093"
       },
+      "description": "DMM average from R02",
+      "fieldConfig": {
+        "defaults": {
+          "mappings": [],
+          "max": 20000,
+          "min": 0,
+          "thresholds": {
+            "mode": "percentage",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "#EAB839",
+                "value": 70
+              },
+              {
+                "color": "red",
+                "value": 100
+              }
+            ]
+          },
+          "unit": "µs"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 11,
+        "w": 6,
+        "x": 12,
+        "y": 4
+      },
+      "id": 91,
+      "options": {
+        "minVizHeight": 200,
+        "minVizWidth": 200,
+        "orientation": "auto",
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "",
+          "values": false
+        },
+        "showThresholdLabels": true,
+        "showThresholdMarkers": true,
+        "sizing": "auto"
+      },
+      "pluginVersion": "10.2.3",
+      "targets": [
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "P16091175048AC601"
+          },
+          "editorMode": "code",
+          "expr": "state_oam_pm_session_ethernet_dmm_statistics_measurement_interval_number_bin_type_round_trip_average{bin_type_bin_metric=\"fd\", instance=\"clab-srv6-gnmic:9804\", job=\"gnmic\", measurement_interval_duration=\"raw\", number_mi_number=\"1\", session_session_name=\"epipe_R2-R3\", source=\"clab-srv6-r02-ixr:57400\", subscription_name=\"sub1\"}",
+          "legendFormat": "__auto",
+          "range": true,
+          "refId": "A"
+        }
+      ],
+      "title": "Epipe R2-R3 Delay",
+      "type": "gauge"
+    },
+    {
+      "datasource": {
+        "type": "prometheus",
+        "uid": "PBFA97CFB590B2093"
+      },
+      "description": "backward SLM on R02",
+      "fieldConfig": {
+        "defaults": {
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          },
+          "unit": "percent"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 11,
+        "w": 6,
+        "x": 18,
+        "y": 4
+      },
+      "id": 92,
+      "options": {
+        "colorMode": "value",
+        "graphMode": "area",
+        "justifyMode": "auto",
+        "orientation": "auto",
+        "reduceOptions": {
+          "calcs": [
+            "last"
+          ],
+          "fields": "",
+          "values": false
+        },
+        "textMode": "auto",
+        "wideLayout": true
+      },
+      "pluginVersion": "10.2.3",
+      "targets": [
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "P16091175048AC601"
+          },
+          "editorMode": "code",
+          "expr": "state_oam_pm_session_ethernet_slm_statistics_measurement_interval_number_backward_average_frame_loss_ratio{instance=\"clab-srv6-gnmic:9804\", job=\"gnmic\", measurement_interval_duration=\"raw\", number_mi_number=\"1\", session_session_name=\"epipe_R2-R3\", source=\"clab-srv6-r02-ixr:57400\", subscription_name=\"sub1\"}",
+          "legendFormat": "__auto",
+          "range": true,
+          "refId": "A"
+        }
+      ],
+      "title": "Epipe R2-R3 Loss ratio",
+      "transformations": [
+        {
+          "id": "labelsToFields",
+          "options": {
+            "keepLabels": [
+              "source"
+            ],
+            "valueLabel": "source"
+          }
+        }
+      ],
+      "type": "stat"
+    },
+    {
+      "datasource": {
+        "type": "prometheus",
+        "uid": "PBFA97CFB590B2093"
+      },
       "fieldConfig": {
         "defaults": {
           "color": {
@@ -526,10 +673,10 @@
         "overrides": []
       },
       "gridPos": {
-        "h": 5,
+        "h": 6,
         "w": 12,
-        "x": 12,
-        "y": 4
+        "x": 0,
+        "y": 9
       },
       "id": 14,
       "options": {
@@ -584,7 +731,7 @@
         "h": 1,
         "w": 24,
         "x": 0,
-        "y": 9
+        "y": 15
       },
       "id": 16,
       "panels": [],
@@ -625,7 +772,7 @@
         "h": 5,
         "w": 4,
         "x": 0,
-        "y": 10
+        "y": 16
       },
       "id": 4,
       "options": {
@@ -725,7 +872,7 @@
         "h": 5,
         "w": 8,
         "x": 4,
-        "y": 10
+        "y": 16
       },
       "id": 87,
       "options": {
@@ -789,7 +936,7 @@
         "h": 5,
         "w": 4,
         "x": 12,
-        "y": 10
+        "y": 16
       },
       "id": 89,
       "options": {
@@ -888,7 +1035,7 @@
         "h": 5,
         "w": 8,
         "x": 16,
-        "y": 10
+        "y": 16
       },
       "id": 88,
       "options": {
@@ -961,10 +1108,10 @@
         "overrides": []
       },
       "gridPos": {
-        "h": 3,
+        "h": 4,
         "w": 24,
         "x": 0,
-        "y": 15
+        "y": 21
       },
       "id": 90,
       "options": {
@@ -1080,7 +1227,7 @@
         "h": 5,
         "w": 12,
         "x": 0,
-        "y": 18
+        "y": 25
       },
       "id": 84,
       "options": {
@@ -1176,7 +1323,7 @@
         "h": 5,
         "w": 12,
         "x": 12,
-        "y": 18
+        "y": 25
       },
       "id": 85,
       "options": {
@@ -1275,7 +1422,7 @@
         "h": 7,
         "w": 24,
         "x": 0,
-        "y": 23
+        "y": 30
       },
       "id": 1,
       "options": {
@@ -1346,9 +1493,9 @@
     "list": [
       {
         "current": {
-          "selected": true,
-          "text": "clab-srv6-R11-SR:57400",
-          "value": "clab-srv6-R11-SR:57400"
+          "selected": false,
+          "text": "clab-srv6-r02-ixr:57400",
+          "value": "clab-srv6-r02-ixr:57400"
         },
         "datasource": {
           "type": "prometheus",
@@ -1400,7 +1547,7 @@
       },
       {
         "current": {
-          "selected": false,
+          "selected": true,
           "text": [
             "system"
           ],
@@ -1439,6 +1586,6 @@
   "timezone": "",
   "title": "Nokia SROS Network",
   "uid": "b8c817e1-16a2-4bb3-bb61-f25a846e04ac",
-  "version": 3,
+  "version": 4,
   "weekStart": ""
 }
