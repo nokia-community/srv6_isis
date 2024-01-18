@@ -388,8 +388,8 @@
         "overrides": []
       },
       "gridPos": {
-        "h": 5,
-        "w": 8,
+        "h": 9,
+        "w": 7,
         "x": 0,
         "y": 4
       },
@@ -448,9 +448,9 @@
         "overrides": []
       },
       "gridPos": {
-        "h": 5,
-        "w": 4,
-        "x": 8,
+        "h": 9,
+        "w": 5,
+        "x": 7,
         "y": 4
       },
       "id": 15,
@@ -530,7 +530,7 @@
         "overrides": []
       },
       "gridPos": {
-        "h": 11,
+        "h": 9,
         "w": 6,
         "x": 12,
         "y": 4
@@ -595,7 +595,7 @@
         "overrides": []
       },
       "gridPos": {
-        "h": 11,
+        "h": 9,
         "w": 6,
         "x": 18,
         "y": 4
@@ -673,10 +673,10 @@
         "overrides": []
       },
       "gridPos": {
-        "h": 6,
+        "h": 7,
         "w": 12,
         "x": 0,
-        "y": 9
+        "y": 13
       },
       "id": 14,
       "options": {
@@ -726,12 +726,112 @@
       "type": "bargauge"
     },
     {
+      "datasource": {
+        "type": "prometheus",
+        "uid": "PBFA97CFB590B2093"
+      },
+      "description": "measured from R07",
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "palette-classic"
+          },
+          "custom": {
+            "axisBorderShow": false,
+            "axisCenteredZero": false,
+            "axisColorMode": "text",
+            "axisLabel": "",
+            "axisPlacement": "auto",
+            "barAlignment": 0,
+            "drawStyle": "line",
+            "fillOpacity": 0,
+            "gradientMode": "none",
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            },
+            "insertNulls": false,
+            "lineInterpolation": "linear",
+            "lineWidth": 1,
+            "pointSize": 5,
+            "scaleDistribution": {
+              "type": "linear"
+            },
+            "showPoints": "auto",
+            "spanNulls": false,
+            "stacking": {
+              "group": "A",
+              "mode": "none"
+            },
+            "thresholdsStyle": {
+              "mode": "off"
+            }
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 7,
+        "w": 12,
+        "x": 12,
+        "y": 13
+      },
+      "id": 93,
+      "options": {
+        "legend": {
+          "calcs": [],
+          "displayMode": "list",
+          "placement": "bottom",
+          "showLegend": false
+        },
+        "tooltip": {
+          "mode": "single",
+          "sort": "none"
+        }
+      },
+      "targets": [
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "PBFA97CFB590B2093"
+          },
+          "disableTextWrap": false,
+          "editorMode": "builder",
+          "expr": "state_oam_pm_session_ip_twamp_light_statistics_delay_measurement_interval_number_bin_type_round_trip_average{source=\"clab-srv6-r07-sr:57400\", session_session_name=\"toR09\", bin_type_bin_metric=\"fd\"}",
+          "fullMetaSearch": false,
+          "includeNullMetadata": true,
+          "instant": false,
+          "legendFormat": "__auto",
+          "range": true,
+          "refId": "A",
+          "useBackend": false
+        }
+      ],
+      "title": "STAMP R07-R09",
+      "type": "timeseries"
+    },
+    {
       "collapsed": false,
       "gridPos": {
         "h": 1,
         "w": 24,
         "x": 0,
-        "y": 15
+        "y": 20
       },
       "id": 16,
       "panels": [],
@@ -769,10 +869,10 @@
         "overrides": []
       },
       "gridPos": {
-        "h": 5,
+        "h": 8,
         "w": 4,
         "x": 0,
-        "y": 16
+        "y": 21
       },
       "id": 4,
       "options": {
@@ -869,10 +969,10 @@
         "overrides": []
       },
       "gridPos": {
-        "h": 5,
+        "h": 8,
         "w": 8,
         "x": 4,
-        "y": 16
+        "y": 21
       },
       "id": 87,
       "options": {
@@ -933,10 +1033,10 @@
         "overrides": []
       },
       "gridPos": {
-        "h": 5,
+        "h": 8,
         "w": 4,
         "x": 12,
-        "y": 16
+        "y": 21
       },
       "id": 89,
       "options": {
@@ -1032,10 +1132,10 @@
         "overrides": []
       },
       "gridPos": {
-        "h": 5,
+        "h": 8,
         "w": 8,
         "x": 16,
-        "y": 16
+        "y": 21
       },
       "id": 88,
       "options": {
@@ -1108,10 +1208,10 @@
         "overrides": []
       },
       "gridPos": {
-        "h": 4,
+        "h": 5,
         "w": 24,
         "x": 0,
-        "y": 21
+        "y": 29
       },
       "id": 90,
       "options": {
@@ -1210,8 +1310,7 @@
             "mode": "absolute",
             "steps": [
               {
-                "color": "green",
-                "value": null
+                "color": "green"
               },
               {
                 "color": "red",
@@ -1227,7 +1326,7 @@
         "h": 5,
         "w": 12,
         "x": 0,
-        "y": 25
+        "y": 34
       },
       "id": 84,
       "options": {
@@ -1306,8 +1405,7 @@
             "mode": "absolute",
             "steps": [
               {
-                "color": "green",
-                "value": null
+                "color": "green"
               },
               {
                 "color": "red",
@@ -1323,7 +1421,7 @@
         "h": 5,
         "w": 12,
         "x": 12,
-        "y": 25
+        "y": 34
       },
       "id": 85,
       "options": {
@@ -1405,8 +1503,7 @@
             "mode": "absolute",
             "steps": [
               {
-                "color": "green",
-                "value": null
+                "color": "green"
               },
               {
                 "color": "red",
@@ -1422,7 +1519,7 @@
         "h": 7,
         "w": 24,
         "x": 0,
-        "y": 30
+        "y": 39
       },
       "id": 1,
       "options": {
@@ -1494,8 +1591,8 @@
       {
         "current": {
           "selected": false,
-          "text": "clab-srv6-r02-ixr:57400",
-          "value": "clab-srv6-r02-ixr:57400"
+          "text": "clab-srv6-r01-ixr:57400",
+          "value": "clab-srv6-r01-ixr:57400"
         },
         "datasource": {
           "type": "prometheus",
@@ -1547,7 +1644,7 @@
       },
       {
         "current": {
-          "selected": true,
+          "selected": false,
           "text": [
             "system"
           ],
@@ -1579,13 +1676,13 @@
     ]
   },
   "time": {
-    "from": "now-5m",
+    "from": "now-15m",
     "to": "now"
   },
   "timepicker": {},
   "timezone": "",
   "title": "Nokia SROS Network",
   "uid": "b8c817e1-16a2-4bb3-bb61-f25a846e04ac",
-  "version": 4,
+  "version": 8,
   "weekStart": ""
 }
