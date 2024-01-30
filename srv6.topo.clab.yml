@@ -200,17 +200,29 @@ topology:
       exec:
         - ifconfig eth1 192.168.0.5
         - ifconfig eth1 netmask 255.255.255.0
-    tester6:
+    tester11:
       kind: linux
       mgmt-ipv4: 172.20.20.125
       exec:
-        - ifconfig eth1 192.168.0.6
+        - ifconfig eth1 192.168.0.11
         - ifconfig eth1 netmask 255.255.255.0
-    tester7:
+    tester13:
       kind: linux
       mgmt-ipv4: 172.20.20.126
       exec:
-        - ifconfig eth1 192.168.0.7
+        - ifconfig eth1 192.168.0.13
+        - ifconfig eth1 netmask 255.255.255.0
+    tester14:
+      kind: linux
+      mgmt-ipv4: 172.20.20.127
+      exec:
+        - ifconfig eth1 192.168.0.14
+        - ifconfig eth1 netmask 255.255.255.0
+    tester16:
+      kind: linux
+      mgmt-ipv4: 172.20.20.128
+      exec:
+        - ifconfig eth1 192.168.0.16
         - ifconfig eth1 netmask 255.255.255.0
 
 #################################################################################################################################################
@@ -275,12 +287,12 @@ topology:
     - endpoints: ["R09-SR:eth3", "R11-SR:eth1"]
     - endpoints: ["R11-SR:eth2", "R12-SR:eth2"]
     - endpoints: ["R11-SR:eth3", "R13-IXR:eth1"]
-    - endpoints: ["R13-IXR:eth2", "tester5:eth1"]
+    - endpoints: ["R13-IXR:eth2", "tester13:eth1"]
     - endpoints: ["R13-IXR:eth3", "R15-IXR:eth1"]
     - endpoints: ["R15-IXR:eth2", "R16-IXR:eth1"]
-    - endpoints: ["R16-IXR:eth2", "tester6:eth1"]
+    - endpoints: ["R16-IXR:eth2", "tester16:eth1"]
     - endpoints: ["R15-IXR:eth3", "R14-IXR:eth1"]
-    - endpoints: ["R14-IXR:eth2", "tester7:eth1"]
+    - endpoints: ["R14-IXR:eth2", "tester14:eth1"]
     - endpoints: ["R14-IXR:eth3", "R12-SR:eth1"]
     - endpoints: ["R12-SR:eth3", "R10-SR:eth1"]
     - endpoints: ["R10-SR:eth3", "R08-SR:eth1"]
@@ -289,3 +301,5 @@ topology:
     - endpoints: ["R02-IXR:eth1", "R04-IXR:eth12"]
     - endpoints: ["R04-IXR:eth1", "tester4:eth1"]
     - endpoints: ["R02-IXR:eth2", "tester2:eth1"]
+    - endpoints: ["R05-SR:eth4", "tester5:eth1"]
+    - endpoints: ["R11-SR:eth4", "tester11:eth1"]
